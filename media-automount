@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #$1 = <dev>
 
 # Directory to use for mounting the devices
@@ -30,7 +30,7 @@ then
     if grep /etc/mtab -qe "^$dev"
     then
 	log "$dev device removed, umounting and cleaning /media"
-	if umount "$dev"
+	if umount -f -l "$dev"
 	then
 	    exitcode=0
 	else
